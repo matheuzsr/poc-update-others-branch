@@ -2,8 +2,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-      run: python manage.py test
     - name: Push main branch into production
       uses: codingforentrepreneurs/action-branch-to-branch@main
       with:
