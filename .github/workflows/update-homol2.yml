@@ -1,8 +1,8 @@
 on: push
-name: Update prod branch on homologation
+name: Update prod branch on release
 jobs:
   updateBranch:
-    name: Update homol branch
+    name: Update staging branch
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
