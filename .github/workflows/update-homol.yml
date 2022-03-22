@@ -1,8 +1,13 @@
-on: push
+name: Testando update homol
+on:
+  push:
+    branches:
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - name: Push main branch into production
       uses: codingforentrepreneurs/action-branch-to-branch@main
       with:
