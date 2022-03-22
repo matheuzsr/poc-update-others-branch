@@ -5,10 +5,10 @@ jobs:
     name: Update homol branch
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
     - uses: Embraser01/update-git-branch-action@v1.0.0
       if: github.ref == 'refs/heads/main'
       with:
-        branch: staging
+        branch: homol
         force: 1 # To push-force to the branch
         githubToken: ${{ secrets.PAT_TOKEN }} # Github Token
