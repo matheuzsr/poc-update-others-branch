@@ -1,5 +1,5 @@
 on: push
-name: Update prod branch on homol
+name: Update prod branch on homologation
 jobs:
   updateBranch:
     name: Update homol branch
