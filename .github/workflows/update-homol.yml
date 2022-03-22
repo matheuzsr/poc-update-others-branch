@@ -7,7 +7,7 @@ jobs:
     - name: Push main branch into production
       uses: codingforentrepreneurs/action-branch-to-branch@main
       with:
-        dest_branch: 'homol'
+        dest_branch: 'homologation'
         source_branch: 'main'
         commit_message: 'Release production version'
       env:
