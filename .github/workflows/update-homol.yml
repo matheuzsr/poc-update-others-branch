@@ -1,12 +1,19 @@
-on: push
-name: Update prod branch on release
+name: Python-Django application
+
+on: 
+  push:
+      branches:
+         - master
+
 jobs:
-  updateBranch:
-  - name: Push from dev to prod branch.
-    uses: Automattic/action-commit-to-branch@master
-    with:
-      dest_branch: 'dev'
-      source_branch: 'prod'
-      commit_message: 'Automated tests for main.'
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Required
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Push main branch into production
+      uses: codingforentrepreneurs/action-branch-to-branch@main
+      with:
+        dest_branch: 'homol'
+        source_branch: 'master'
+        commit_message: 'Release production version'
+      env:
+        GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
