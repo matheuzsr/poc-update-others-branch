@@ -1,8 +1,12 @@
+on: push
+name: Update prod branch on release
+jobs:
+  updateBranch:
 - name: Push from dev to prod branch.
   uses: Automattic/action-commit-to-branch@master
   with:
-    dest_branch: 'homol'
-    source_branch: 'master'
+    dest_branch: 'dev'
+    source_branch: 'prod'
     commit_message: 'Automated tests for main.'
   env:
-    GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }} # Required
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Required
