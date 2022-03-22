@@ -1,0 +1,8 @@
+- name: Push from dev to prod branch.
+  uses: Automattic/action-commit-to-branch@master
+  with:
+    dest_branch: 'homol'
+    source_branch: 'master'
+    commit_message: 'Automated tests for main.'
+  env:
+    GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }} # Required
