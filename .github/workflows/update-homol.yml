@@ -1,18 +1,18 @@
-name: Testando update homol
+name: Update homologation/tracking with master
 on:
   push:
     branches:
-      - main
+      - master
 jobs:
-  build:
+  update:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Push main branch into production
+    - name: Push master branch into homologation
       uses: codingforentrepreneurs/action-branch-to-branch@main
       with:
-        dest_branch: 'homologation'
-        source_branch: 'main'
-        commit_message: 'Release production version'
+        dest_branch: 'homologation/tracking'
+        source_branch: 'master'
+        commit_message: 'Update homol with master'
       env:
         GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
