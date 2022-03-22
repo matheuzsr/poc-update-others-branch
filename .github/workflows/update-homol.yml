@@ -1,19 +1,25 @@
-name: Python-Django application
-
-on: 
-  push:
-      branches:
-         - master
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python 3.6
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.6
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Run migrations
+      run: python manage.py migrate
+    - name: Run tests
+      run: python manage.py test
     - name: Push main branch into production
       uses: codingforentrepreneurs/action-branch-to-branch@main
       with:
-        dest_branch: 'homol'
-        source_branch: 'master'
+        dest_branch: 'production-v1'
+        source_branch: 'main'
         commit_message: 'Release production version'
       env:
         GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
