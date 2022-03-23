@@ -1,3 +1,3 @@
 # poc-update-others-branch
 
-Atualizando a branch homologation tracking(conflito)
+Atualizando a branch homologation tracking(conflito) - Teste chapter
